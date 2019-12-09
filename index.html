@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page Title</title>
+  <title>'Rock, Paper, Scissors'</title>
 </head>
 <body>
   <script>
 
-//Counterpolay function to generate comuputer answer at random
+
+let player = 0;
+let computer = 0; 
+
+//Counterplay function to generate comuputer answer at random 
 function counterPlay(){
     
     random = Math.floor(Math.random() * 3)+1
@@ -22,24 +26,51 @@ function counterPlay(){
     }
 }
 
-function playRound(a,b){
+// Play a round function
+    
+   function playRound(a,b){
     a1 = a.toUpperCase()
     b1 = b.toUpperCase()
     if(a1===b1){
         return "it's a draw!"
     } else if ( a1 === 'ROCK' && b1 === 'SCISSORS' || a1 === 'PAPER' && b1 === 'ROCK'|| a1 === 'SCISSORS' && b1 === 'PAPER'){
-        return  "You Win! " + a1 + " beats " + b1  
+        player++;
+        return  "You Win! " + a1 + " beats " + b1 ;
+         
     } else if ( b1 === 'ROCK' && a1 === 'SCISSORS' || b1 === 'PAPER' && a1 === 'ROCK'|| b1 === 'SCISSORS' && a1 === 'PAPER'){
-        return  "You Lose! "+ b1 + " beats " + a1  
-        }  else return "Fault" 
+        computer++;
+        return  "You Lose! "+ b1 + " beats " + a1 ;
+        }  else return "Fault" ;
+        
+
+}
+
+//calculate result based on aggregated scores 
+function score(p, c){ 
+    if (p > c) {return 'Player WINS! with ' + p + ' out of 5';
+    } else if (c > p) {return 'Player LOSES! with ' + p + ' out of 5';
+    } else {return 'Its a draw, refresh to play again!'}
+    }
+
+//Loop rounds for 5 games 
+function game(){ 
+  let i;
+
+  for( i=0 ; i < 5; i++) {
+    let playerSelection= prompt('Choose "ROCK", "PAPER" or "SCISSORS"','')
+    let computerSelection = counterPlay()
+
+    console.log(playRound(playerSelection, computerSelection))
+    }   
+    console.log(score(player,computer))
+    
+   
+
 }
 
 
-let playerSelection= prompt('Choose "ROCK", "PAPER" or "SCISSORS"','')
-let computerSelection = counterPlay()
 
-
-console.log(playRound(playerSelection, computerSelection))
+game()
 
   </script>
 </body>
