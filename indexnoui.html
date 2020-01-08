@@ -2,6 +2,34 @@
 <html>
 <head>
   <title>'Rock, Paper, Scissors'</title>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id = main>
+
+    <div id = selection>
+        <button id='rock' value = 'rock'><img src="images/rock.png" class="buttonicon"></button>   
+        <button id='paper' value = 'paper'><img src="images/paper.png" class="buttonicon"></button>   
+        <button id='scissors' value = 'scissors'><img src="images/scissors.png" class="buttonicon"></button>   
+    </div>
+    <div id = scores>
+        <div id = playerScore > Player Score: 0</div>
+        <div id = computerScore > Computer Score: 0</div>
+        <div id = winner></div>
+
+        <div id = rounds></div>
+        <div id = restart></div>
+    </div>
+</div>
+  
+  
+  <script>
+
+let player = 0;
+let computer = 0; 
+let roundcount = 1;
+=======
 </head>
 <body>
   <script>
@@ -9,6 +37,7 @@
 
 let player = 0;
 let computer = 0; 
+>>>>>>> 5cf923bc0fa12cd0aa7e71925c75b4e2a5653475
 
 //Counterplay function to generate comuputer answer at random 
 function counterPlay(){
@@ -28,6 +57,20 @@ function counterPlay(){
 
 // Play a round function
     
+<<<<<<< HEAD
+function playRound(a,b){
+    a1 = a.toUpperCase()
+    b1 = b.toUpperCase()
+    if(a1===b1){
+        return "ITS A DRAW!"
+    } else if ( a1 === 'ROCK' && b1 === 'SCISSORS' || a1 === 'PAPER' && b1 === 'ROCK'|| a1 === 'SCISSORS' && b1 === 'PAPER'){
+        player++;
+        return  "YOU WIN! " + a1 + " BEATS " + b1 ;
+         
+    } else if ( b1 === 'ROCK' && a1 === 'SCISSORS' || b1 === 'PAPER' && a1 === 'ROCK'|| b1 === 'SCISSORS' && a1 === 'PAPER'){
+        computer++;
+        return  "YOU LOSE! "+ b1 + " BEATS " + a1 ;
+=======
    function playRound(a,b){
     a1 = a.toUpperCase()
     b1 = b.toUpperCase()
@@ -40,6 +83,7 @@ function counterPlay(){
     } else if ( b1 === 'ROCK' && a1 === 'SCISSORS' || b1 === 'PAPER' && a1 === 'ROCK'|| b1 === 'SCISSORS' && a1 === 'PAPER'){
         computer++;
         return  "You Lose! "+ b1 + " beats " + a1 ;
+>>>>>>> 5cf923bc0fa12cd0aa7e71925c75b4e2a5653475
         }  else return "Fault" ;
         
 
@@ -47,6 +91,54 @@ function counterPlay(){
 
 //calculate result based on aggregated scores 
 function score(p, c){ 
+<<<<<<< HEAD
+    if (p === 5) {
+        rounds.innerHTML = "";
+        rounds.textContent = 'PLAYER WINS';
+        restrt.appendChild(btn)
+        
+    } else if (c === 5) {
+        rounds.innerHTML = ""
+        rounds.textContent = 'PLAYER LOSES!';
+        restrt.appendChild(btn)
+    } else return
+    }
+
+
+
+    
+function game(e){ 
+
+     if(player >= 5 || computer >= 5) {
+         return } 
+    else {
+        let playerSelection= this .value;
+        let computerSelection = counterPlay()
+        const rounds = document.querySelector('#rounds')
+        const content = document.createElement('div')
+        const cScore = document.getElementById('computerScore')
+        const pScore = document.getElementById('playerScore')
+
+        content.textContent = 'Round: '+ roundcount + ' - ' + playRound(playerSelection, computerSelection)
+        rounds.appendChild(content)
+        pScore.textContent ='Player Score: '+player
+        cScore.textContent ='Computer Score: '+computer
+        roundcount ++
+        score(player,computer)
+        }
+}
+
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', game));
+const restrt = document.querySelector('#restart')
+var btn = document.createElement("button")
+btn.innerHTML = "Restart"
+btn.addEventListener("click", btn => location.reload())
+
+
+
+=======
     if (p > c) {return 'Player WINS! with ' + p + ' out of 5';
     } else if (c > p) {return 'Player LOSES! with ' + p + ' out of 5';
     } else {return 'Its a draw, refresh to play again!'}
@@ -71,6 +163,7 @@ function game(){
 
 
 game()
+>>>>>>> 5cf923bc0fa12cd0aa7e71925c75b4e2a5653475
 
   </script>
 </body>
